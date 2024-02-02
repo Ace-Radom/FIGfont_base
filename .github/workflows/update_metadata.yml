@@ -1,0 +1,27 @@
+name: update FIGfont base metadata
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  update metadata:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        
+      - name: update metadata
+        run: sh ${{github.workspace}}/update_metadata.sh
+
+      - name: push new metadata
+        uses: actions-js/push@master
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          author_email: ${{secrets.BOT_EMAIL}}
+          author_name: ${{secrets.BOT_USERNAME}}
+          message: update metadata
+          branch: main
