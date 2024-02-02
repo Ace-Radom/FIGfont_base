@@ -4,13 +4,9 @@ script_dir=`dirname $0`
 cd $script_dir
 # go to script dir
 
-git log -1 --pretty=format:%h > META
-echo >> META
-# write git commit hash to META
-
 FONTDIRS=`find . -maxdepth 1 -type d | sort`
 
-echo "#FIGfonts" >> META
+echo "#FIGfonts" > META
 echo "processing FIGfonts"
 
 for dir in $FONTDIRS; do
