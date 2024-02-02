@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
         
       - name: update metadata
-        run: sh ${{github.workspace}}/update_metadata.sh
+        run: bash ${{github.workspace}}/update_metadata.sh
 
       - name: push new metadata
         uses: actions-js/push@master
