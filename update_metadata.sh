@@ -9,7 +9,7 @@ echo >> META
 echo "#FIGfonts" >> META
 # write git commit hash to META
 
-FONTDIRS=`find . -maxdepth 1 -type d`
+FONTDIRS=`find . -maxdepth 1 -type d | sort`
 
 for dir in $FONTDIRS; do
     if [ "$dir" = "./.git" ] || [ "$dir" = "./.github" ] || [ "$dir" = "." ]; then
