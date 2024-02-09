@@ -23,7 +23,7 @@ for dir in $FONTDIRS; do
         echo "$f:`echo $dir | sed 's/^\.\///'`/$f" >> ../META
         let count++
     done
-    echo "find $count fonts in this directory"
+    echo "find $count FIGlet fonts in this directory"
     echo " * leave directory: $dir"
     cd ..
 done
@@ -67,7 +67,7 @@ for dir in $FONTDIRS; do
         echo "$f:`echo $dir | sed 's/^\.\///'`/$f" >> ../META
         let count++
     done
-    echo "find $count control files in this directory"
+    echo "find $count TLF fonts in this directory"
     echo " * leave directory: $dir"
     cd ..
 done
