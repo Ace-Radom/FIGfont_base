@@ -20,10 +20,10 @@ for dir in $FONTDIRS; do
     FONTS=`find . -maxdepth 1 -type f -name "*.flf" | sed "s!.*/\([^/]*\)\.flf!\1!" | sort`
     count=0
     for f in $FONTS; do
-        echo "$f:`echo $dir | sed 's/^\.\///'`/$f" >> ../META
+        echo "$f:`echo $dir | sed 's/^\.\///'`/$f|`sha256sum $f.flf | cut -d ' ' -f1`" >> ../META
         let count++
     done
-    echo "find $count fonts in this directory"
+    echo "find $count FIGfonts in this directory"
     echo " * leave directory: $dir"
     cd ..
 done
@@ -42,7 +42,7 @@ for dir in $FONTDIRS; do
     FONTS=`find . -maxdepth 1 -type f -name "*.flc" | sed "s!.*/\([^/]*\)\.flc!\1!" | sort`
     count=0
     for f in $FONTS; do
-        echo "$f:`echo $dir | sed 's/^\.\///'`/$f" >> ../META
+        echo "$f:`echo $dir | sed 's/^\.\///'`/$f|`sha256sum $f.flc | cut -d ' ' -f1`" >> ../META
         let count++
     done
     echo "find $count control files in this directory"
@@ -64,10 +64,10 @@ for dir in $FONTDIRS; do
     FONTS=`find . -maxdepth 1 -type f -name "*.tlf" | sed "s!.*/\([^/]*\)\.tlf!\1!" | sort`
     count=0
     for f in $FONTS; do
-        echo "$f:`echo $dir | sed 's/^\.\///'`/$f" >> ../META
+        echo "$f:`echo $dir | sed 's/^\.\///'`/$f|`sha256sum $f.tlf | cut -d ' ' -f1`" >> ../META
         let count++
     done
-    echo "find $count control files in this directory"
+    echo "find $count TOIlet fonts in this directory"
     echo " * leave directory: $dir"
     cd ..
 done
