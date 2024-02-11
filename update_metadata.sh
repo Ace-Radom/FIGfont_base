@@ -67,7 +67,7 @@ for dir in $FONTDIRS; do
         echo "$f:`echo $dir | sed 's/^\.\///'`/$f|`sha256sum $f.tlf | cut -d ' ' -f1`" >> ../META
         let count++
     done
-    echo "find $count TOIlet fonts in this directory"
+    echo "find $count control files in this directory"
     echo " * leave directory: $dir"
     cd ..
 done
